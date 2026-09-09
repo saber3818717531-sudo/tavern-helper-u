@@ -1,0 +1,29 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* 语义配色：语义来源见 design-spec.md ## UI 设计 */
+  --c-primary: #5b8def; /* 手机应用图标的顺手蓝 */
+  --c-primary-soft: #e8effd; /* primary 的浅底 */
+  --c-bg: #faf7f2; /* 晨光白墙 */
+  --c-surface: #ffffff; /* 卡片纸面 */
+  --c-accent: #ff8a7a; /* 脸颊微热的温度 */
+  --c-accent-deep: #f26d5c; /* 常态灯 */
+  --c-steady: #7ac29a; /* 理所当然的安稳感 */
+  --c-warm: #f0a24a; /* 暧昧过渡色 */
+  --c-grey: #c9c9c9; /* 未接触 */
+  --c-text: #3d3d3d; /* 墨水灰 */
+  --c-text-muted: #9a9a9a; /* 次要文字 */
+  --c-border: #ece7df; /* 浅边框 */
+
+  --font-main: 'PingFang SC', 'HarmonyOS Sans SC', 'Microsoft YaHei', sans-serif;
+}
+
+body {
+  font-family: var(--font-main);
+  color: var(--c-text);
+  background: transparent;
+}

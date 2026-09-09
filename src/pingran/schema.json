@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "世界": {
+      "default": {},
+      "type": "object",
+      "properties": {
+        "当前时间": {
+          "default": "2026/09/12 09:30",
+          "type": "string"
+        },
+        "当前场合": {
+          "default": "家庭亲戚",
+          "type": "string",
+          "enum": [
+            "大学校园",
+            "写字楼职场",
+            "地铁公交",
+            "医院",
+            "居民小区邻里",
+            "商场餐饮咖啡",
+            "健身房",
+            "夜店酒吧KTV",
+            "政务银行大厅",
+            "警局",
+            "家庭亲戚",
+            "酒店旅馆",
+            "会展中心",
+            "移动中"
+          ]
+        },
+        "在场人物": {
+          "default": [],
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "人物": {
+      "default": {},
+      "type": "object",
+      "propertyNames": {
+        "type": "string",
+        "description": "NPC 姓名"
+      },
+      "additionalProperties": {
+        "default": {},
+        "type": "object",
+        "properties": {
+          "身份": {
+            "default": "待更新",
+            "type": "string"
+          },
+          "接受度": {
+            "default": 0,
+            "type": "number"
+          },
+          "夺取进度": {
+            "default": "未接触",
+            "type": "string",
+            "enum": [
+              "未接触",
+              "日常",
+              "暧昧",
+              "得手",
+              "稳固"
+            ]
+          },
+          "NSFW": {
+            "default": "无",
+            "type": "string",
+            "enum": [
+              "无",
+              "已发生",
+              "常态"
+            ]
+          }
+        }
+      }
+    },
+    "夺取记录": {
+      "default": {},
+      "type": "object",
+      "propertyNames": {
+        "type": "string"
+      },
+      "additionalProperties": {
+        "type": "string"
+      }
+    }
+  }
+}
