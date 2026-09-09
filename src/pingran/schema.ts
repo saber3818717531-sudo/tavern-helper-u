@@ -42,6 +42,8 @@ export const Schema = z.object({
             臀围: z.string().prefault('未记录'),
           })
           .prefault({}),
+        外貌: z.string().prefault('未记录'),
+        服饰: z.string().prefault('未记录'),
         内心: z.string().prefault('尚无想法'),
         接受度: z.coerce
           .number()
