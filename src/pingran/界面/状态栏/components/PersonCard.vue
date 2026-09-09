@@ -1,5 +1,5 @@
 <template>
-  <div class="person-card" :class="{ away }">
+  <div class="person-card" :class="{ away }" @click="show_detail = !show_detail">
     <div class="head">
       <span class="name">{{ name }}</span>
       <span class="lamp" :class="lamp_class"></span>
@@ -14,6 +14,20 @@
       <span class="accept-label">{{ accept_label }}</span>
       <span class="stamp" :class="stamp_class">{{ info.夺取进度 }}</span>
     </div>
+    <div v-if="show_detail" class="detail">
+      <div class="detail-grid">
+        <div class="detail-item"><span class="k">身高</span><span class="v">{{ info.身高 }}</span></div>
+        <div class="detail-item"><span class="k">体重</span><span class="v">{{ info.体重 }}</span></div>
+      </div>
+      <div class="detail-grid">
+        <div class="detail-item"><span class="k">胸围</span><span class="v">{{ info.三围.胸围 }}</span></div>
+        <div class="detail-item"><span class="k">罩杯</span><span class="v">{{ info.三围.罩杯 }}</span></div>
+        <div class="detail-item"><span class="k">腰围</span><span class="v">{{ info.三围.腰围 }}</span></div>
+        <div class="detail-item"><span class="k">臀围</span><span class="v">{{ info.三围.臀围 }}</span></div>
+      </div>
+      <div class="inner">「{{ info.内心 }}」</div>
+    </div>
+    <div v-else class="hint">点击查看详细资料</div>
   </div>
 </template>
 
@@ -23,6 +37,8 @@ import type { SchemaType } from '../../schema';
 type PersonInfo = SchemaType['人物'][string];
 
 const props = defineProps<{ name: string; info: PersonInfo; away?: boolean }>();
+
+const show_detail = ref(false);
 
 const accept_label = computed(() => {
   const v = props.info.接受度;
@@ -166,5 +182,56 @@ const lamp_class = computed(() => 'lamp-' + props.info.NSFW);
   color: #fff;
   background: var(--c-steady);
   border-color: var(--c-steady);
+}
+
+.detail {
+  margin-top: 8px;
+  border-top: 1px dashed var(--c-border);
+  padding-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(64px, 1fr));
+  gap: 4px;
+}
+
+.detail-item {
+  background: var(--c-bg);
+  border-radius: 6px;
+  padding: 4px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.detail-item .k {
+  font-size: 10px;
+  color: var(--c-text-muted);
+}
+
+.detail-item .v {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.inner {
+  background: var(--c-primary-soft);
+  border-left: 3px solid var(--c-accent);
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 12px;
+  font-style: italic;
+}
+
+.hint {
+  margin-top: 6px;
+  font-size: 11px;
+  color: var(--c-text-muted);
+  text-align: right;
+  opacity: 0.7;
 }
 </style>

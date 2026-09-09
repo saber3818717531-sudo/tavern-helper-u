@@ -54,6 +54,40 @@
             "default": "待更新",
             "type": "string"
           },
+          "身高": {
+            "default": "未记录",
+            "type": "string"
+          },
+          "体重": {
+            "default": "未记录",
+            "type": "string"
+          },
+          "三围": {
+            "default": {},
+            "type": "object",
+            "properties": {
+              "胸围": {
+                "default": "未记录",
+                "type": "string"
+              },
+              "罩杯": {
+                "default": "未记录",
+                "type": "string"
+              },
+              "腰围": {
+                "default": "未记录",
+                "type": "string"
+              },
+              "臀围": {
+                "default": "未记录",
+                "type": "string"
+              }
+            }
+          },
+          "内心": {
+            "default": "尚无想法",
+            "type": "string"
+          },
           "接受度": {
             "default": 0,
             "type": "number"
