@@ -2,6 +2,7 @@
   <div class="person-card" :class="{ away }" @click="show_detail = !show_detail">
     <div class="head">
       <span class="name">{{ name }}</span>
+      <span class="age-badge">{{ info.年龄 }}岁</span>
       <span class="lamp" :class="lamp_class"></span>
       <span class="lamp-label">{{ info.NSFW }}</span>
     </div>
@@ -25,6 +26,8 @@
         <div class="detail-item"><span class="k">腰围</span><span class="v">{{ info.三围.腰围 }}</span></div>
         <div class="detail-item"><span class="k">臀围</span><span class="v">{{ info.三围.臀围 }}</span></div>
       </div>
+      <div class="text-block"><span class="k">外貌</span>{{ info.外貌 }}</div>
+      <div class="text-block"><span class="k">服饰</span>{{ info.服饰 }}</div>
       <div class="inner">「{{ info.内心 }}」</div>
     </div>
     <div v-else class="hint">点击查看详细资料</div>
@@ -83,6 +86,15 @@ const lamp_class = computed(() => 'lamp-' + props.info.NSFW);
   align-items: center;
   gap: 6px;
   margin-bottom: 2px;
+}
+
+.age-badge {
+  font-size: 11px;
+  color: var(--c-primary);
+  background: var(--c-primary-soft);
+  border-radius: 999px;
+  padding: 0 8px;
+  font-weight: 500;
 }
 
 .name {
@@ -233,5 +245,19 @@ const lamp_class = computed(() => 'lamp-' + props.info.NSFW);
   color: var(--c-text-muted);
   text-align: right;
   opacity: 0.7;
+}
+
+.text-block {
+  background: var(--c-bg);
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 12px;
+}
+
+.text-block .k {
+  display: inline-block;
+  font-size: 10px;
+  color: var(--c-text-muted);
+  margin-right: 6px;
 }
 </style>

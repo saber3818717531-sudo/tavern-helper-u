@@ -28,6 +28,10 @@ export const Schema = z.object({
       z.string().describe('NPC 姓名'),
       z.object({
         身份: z.string().prefault('待更新'),
+        年龄: z.coerce
+          .number()
+          .transform(value => _.clamp(value, 18, 60))
+          .prefault(18),
         身高: z.string().prefault('未记录'),
         体重: z.string().prefault('未记录'),
         三围: z
