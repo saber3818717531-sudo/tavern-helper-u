@@ -88,6 +88,14 @@
               }
             }
           },
+          "外貌": {
+            "default": "未记录",
+            "type": "string"
+          },
+          "服饰": {
+            "default": "未记录",
+            "type": "string"
+          },
           "内心": {
             "default": "尚无想法",
             "type": "string"
